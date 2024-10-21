@@ -92,8 +92,9 @@ func main() {
 
 
 	// Encode as PNG.
-	f, _ := os.Create("image.png")
+	outputFilename := inputFilename[0 : len(inputFilename) - len(".2bpp")] + ".png"
+	f, _ := os.Create(outputFilename)
 	png.Encode(f, img)
 
-	fmt.Println("Written output to image.png")
+	fmt.Println("Written output to", outputFilename)
 }
